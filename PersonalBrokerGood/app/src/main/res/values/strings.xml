@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">Personal Broker</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_broker">BrokerActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="UsernameText">Username</string>
+    <string name="LoginButtonText">Login</string>
+    <string name="money_transfer">Money Transfer</string>
+    <string name="my_bank_account">My Bank Account</string>
+    <string name="settings">Settings</string>
+    <string name="help">Help</string>
+    <string name="logout">Logout</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="iban">IBAN</string>
+    <string name="my_account_amount">Amount</string>
+
+    <string-array name="menu_options">
+        <item>Portfolio</item>
+        <item>Indices</item>
+        <item>Currencies</item>
+        <item>News</item>
+    </string-array>
+
+    <string-array name="currency_array">
+        <item>EUR</item>
+        <item>USD</item>
+        <item>RON</item>
+    </string-array>
+
+    <string name="title_activity_money_transfer">MoneyTransferActivity</string>
+    <string name="title_activity_bank_account">BankAccountActivity</string>
+    <string name="my_account_information">My Account Information</string>
+    <string name="money_transfer_title">Money Transfer</string>
+    <string name="source_iban">Source IBAN</string>
+    <string name="amount_of_source_account">Amount</string>
+    <string name="title_activity_security_details">SecurityDetailsActivity</string>
+</resources>

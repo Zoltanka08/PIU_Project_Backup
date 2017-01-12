@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <ImageView
+        app:srcCompat="@drawable/ic_menu_gallery"
+        android:layout_marginLeft="19dp"
+        android:layout_marginStart="19dp"
+        android:id="@+id/news_image"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Gold futures turned lower"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/news_title"
+        android:paddingTop="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/news_image"
+        android:layout_toEndOf="@+id/news_image"
+        android:layout_marginLeft="22dp"
+        android:layout_marginStart="22dp"
+        android:textSize="18sp"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:text="Ian. 18, 2017 13:17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="33dp"
+        android:layout_marginStart="33dp"
+        android:id="@+id/news_date"
+        android:paddingTop="10dp"
+        android:layout_below="@+id/news_title"
+        android:layout_alignLeft="@+id/news_title"
+        android:layout_alignStart="@+id/news_title" />
+</RelativeLayout>
