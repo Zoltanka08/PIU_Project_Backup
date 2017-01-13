@@ -24,9 +24,36 @@
             android:text="@string/LoginButtonText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="39dp"
+            android:layout_marginBottom="77dp"
             android:id="@+id/LoginButton"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/username_text"
+            android:hint="Username"
+            android:layout_marginRight="58dp"
+            android:layout_marginEnd="58dp"
+            android:layout_marginTop="126dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/password"
+            android:hint="Password"
+            android:layout_marginTop="26dp"
+            android:layout_below="@+id/username_text"
+            android:layout_alignLeft="@+id/username_text"
+            android:layout_alignStart="@+id/username_text" />
+
     </RelativeLayout>
 </RelativeLayout>

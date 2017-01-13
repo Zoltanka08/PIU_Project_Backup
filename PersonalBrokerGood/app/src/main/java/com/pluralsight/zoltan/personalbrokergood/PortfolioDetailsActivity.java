@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
+import MockDatabase.Models.Database.IndexData;
 import MockDatabase.Models.Database.SecurityData;
 import MockDatabase.Models.Security;
 
@@ -17,12 +20,11 @@ public class PortfolioDetailsActivity extends AppCompatActivity {
 
     private static final String OPERATION = "Operation";
     private static final String SELL_OPERATION = "Sell";
-    private static final String BUY_OPERATION = "Buy";
 
     private static final String FRAGMENT_ID = "FragmentName";
     private static final String SECURITY_LIST = "SecurityList";
 
-    private Security security;
+    private static Security security;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +56,13 @@ public class PortfolioDetailsActivity extends AppCompatActivity {
             }
         });
 
-        this.security = SecurityData.GetSecurityById(securityId);
+        if(operation.equals(SELL_OPERATION)) {
+            this.security = SecurityData.GetSecurityById(securityId);
+        }
+        else
+        {
+            this.security = IndexData.getSecurityById(securityId);
+        }
 
         TextView percentage = (TextView) findViewById(R.id.security_percentage);
         percentage.setText(this.security.getPercentage());
@@ -71,20 +79,27 @@ public class PortfolioDetailsActivity extends AppCompatActivity {
         TextView name = (TextView) findViewById(R.id.security_name);
         name.setText(this.security.getName());
 
+        TextView amount = (TextView) findViewById(R.id.security_amount);
+        amount.setText(this.security.getAmount());
+
         Button button = (Button) findViewById(R.id.buy_sell_button);
         if(operation.equals(SELL_OPERATION))
             button.setText("SELL");
         else
             button.setText("BUY");
 
-        button.setOnClickListener(new View.OnClickListener() {
+            button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(operation.equals(SELL_OPERATION)){
-
+                    Intent intent = new Intent(PortfolioDetailsActivity.this, SellActivity.class);
+                    intent.putExtra(SECURITY_ID, PortfolioDetailsActivity.security.getSecurityId());
+                    startActivity(intent);
                 }
                 else{
-
+                    Intent intent = new Intent(PortfolioDetailsActivity.this, BuyActivity.class);
+                    intent.putExtra(SECURITY_ID, PortfolioDetailsActivity.security.getSecurityId());
+                    startActivity(intent);
                 }
             }
         });

@@ -15,10 +15,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.pluralsight.zoltan.personalbrokergood.fragment.CurrencyFragment;
 import com.pluralsight.zoltan.personalbrokergood.fragment.IndexFragment;
 import com.pluralsight.zoltan.personalbrokergood.fragment.NewsFragment;
 import com.pluralsight.zoltan.personalbrokergood.fragment.PortfolioFragment;
 
+import MockDatabase.Models.Currency;
 import MockDatabase.Models.News;
 import MockDatabase.Models.Security;
 
@@ -27,7 +29,8 @@ public class BrokerActivity extends AppCompatActivity
                     NewsFragment.OnNewsInteractionListener,
                     PortfolioFragment.OnPortfolioInteractionListener,
                     AdapterView.OnItemSelectedListener,
-                    IndexFragment.OnIndexInteractionListener {
+                    IndexFragment.OnIndexInteractionListener,
+                    CurrencyFragment.OnCurrencyFragmentInteractionListener {
 
     private static final String SECURITY_ID = "SecurityId";
     private static final String NEWS_ID = "NewsId";
@@ -164,7 +167,10 @@ public class BrokerActivity extends AppCompatActivity
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
         } else if(pos == 2){
-
+            CurrencyFragment fragment = new CurrencyFragment();
+            android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.commit();
         } else if(pos == 3){
             NewsFragment fragment = new NewsFragment();
             android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -189,16 +195,14 @@ public class BrokerActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.money_transfer) {
-            // Handle the camera action
             Intent intent = new Intent(this, MoneyTransferActivity.class);
             startActivity(intent);
         } else if (id == R.id.current_bank_account) {
             Intent intent = new Intent(this, BankAccountActivity.class);
             startActivity(intent);
-
         } else if (id == R.id.help) {
-
-
+            Intent intent = new Intent(this, HelpActivity.class);
+            startActivity(intent);
         } else if (id == R.id.logout) {
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
@@ -229,5 +233,10 @@ public class BrokerActivity extends AppCompatActivity
         Intent myIntent = new Intent(this, SecuritiesOfIndexActivity.class);
         myIntent.putExtra(INDEX_POSITION, item.getSecurityId());
         startActivity(myIntent);
+    }
+
+    @Override
+    public void onCurrencyInteraction(Currency item){
+
     }
 }

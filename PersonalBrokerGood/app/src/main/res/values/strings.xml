@@ -40,4 +40,7 @@
     <string name="title_activity_security_details">SecurityDetailsActivity</string>
     <string name="title_activity_ndetails">NDetailsActivity</string>
     <string name="title_activity_securities_of_index">SecuritiesOfIndexActivity</string>
+    <string name="title_activity_buy">BuyActivity</string>
+    <string name="title_activity_sell">SellActivity</string>
+    <string name="title_activity_help">HelpActivity</string>
 </resources>

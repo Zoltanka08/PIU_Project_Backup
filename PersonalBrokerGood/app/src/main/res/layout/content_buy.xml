@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_buy"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.pluralsight.zoltan.personalbrokergood.BuyActivity"
+    tools:showIn="@layout/activity_buy">
+
+    <Button
+        android:text="BUY"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/buy_button"
+        android:background="@android:color/holo_green_dark" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buy_type_text"
+        android:layout_marginBottom="50dp"
+        android:layout_above="@+id/textView8"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buy_price_text"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:layout_marginBottom="66dp"
+        android:layout_above="@+id/buy_button"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/buy_amount_text"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_below="@+id/textView14"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="Amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView14"
+        android:textColor="@android:color/black"
+        android:textSize="30sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="61dp" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner"
+        android:entries="@array/currency_array"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_marginBottom="24dp"
+        android:layout_above="@+id/textView19"
+        android:layout_alignRight="@+id/buy_amount_text"
+        android:layout_alignEnd="@+id/buy_amount_text"
+        android:layout_alignLeft="@+id/buy_amount_text"
+        android:layout_alignStart="@+id/buy_amount_text" />
+
+    <TextView
+        android:text="Currency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView8"
+        android:textColor="@android:color/black"
+        android:textSize="30sp"
+        android:layout_above="@+id/spinner"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="Price/Piece"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView19"
+        android:textColor="@android:color/black"
+        android:textSize="30sp"
+        android:layout_above="@+id/buy_price_text"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="Type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView17"
+        android:textColor="@android:color/black"
+        android:textSize="30sp"
+        android:layout_above="@+id/buy_type_text"
+        android:layout_alignRight="@+id/buy_price_text"
+        android:layout_alignEnd="@+id/buy_price_text" />
+</RelativeLayout>

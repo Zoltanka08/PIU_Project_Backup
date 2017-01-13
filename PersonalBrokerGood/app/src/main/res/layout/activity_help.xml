@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.pluralsight.zoltan.personalbrokergood.BankAccountActivity">
+    tools:context="com.pluralsight.zoltan.personalbrokergood.HelpActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -21,18 +21,18 @@
             android:weightSum="1">
 
             <TextView
-                android:text="@string/my_account_information"
+                android:text="Help"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/textView"
-                android:layout_weight="0.75"
-                android:textSize="24sp"
+                android:id="@+id/textView3"
+                android:layout_weight="1.84"
+                android:textSize="30sp"
                 android:gravity="center_vertical" />
 
         </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_bank_account" />
+    <include layout="@layout/content_help" />
 
 </android.support.design.widget.CoordinatorLayout>

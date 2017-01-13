@@ -53,17 +53,6 @@
         android:layout_below="@+id/textView7"
         android:layout_centerHorizontal="true" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/amount_to_transfer"
-        android:hint="Amount of money"
-        android:layout_below="@+id/textView7"
-        android:layout_alignLeft="@+id/iban_source"
-        android:layout_alignStart="@+id/iban_source" />
-
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -75,4 +64,14 @@
         android:layout_alignRight="@+id/amount_to_transfer"
         android:layout_alignEnd="@+id/amount_to_transfer"
         android:entries="@array/currency_array" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:layout_below="@+id/textView7"
+        android:layout_alignRight="@+id/iban_source"
+        android:layout_alignEnd="@+id/iban_source"
+        android:id="@+id/amount_to_transfer" />
 </RelativeLayout>

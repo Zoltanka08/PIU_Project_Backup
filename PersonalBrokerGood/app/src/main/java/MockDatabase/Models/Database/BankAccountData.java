@@ -8,14 +8,9 @@ import MockDatabase.Models.BankAccount;
 
 public class BankAccountData {
 
-    public static BankAccount MyBankAccount;
+    public static BankAccount MyBankAccount = new BankAccount("ROBTRL12312AS124XCS", "5900.9");
 
     public static BankAccount GetMyAccount(){
-        if(MyBankAccount == null)
-        {
-            MyBankAccount = new BankAccount("ROBTRL12312AS124XCS", "5900.9");
-        }
-
         return MyBankAccount;
     }
 }

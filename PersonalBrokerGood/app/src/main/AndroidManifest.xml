@@ -41,6 +41,18 @@
         <activity
             android:name=".SecuritiesOfIndexActivity"
             android:label="@string/title_activity_securities_of_index"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".BuyActivity"
+            android:label="@string/title_activity_buy"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SellActivity"
+            android:label="@string/title_activity_sell"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".HelpActivity"
+            android:label="@string/title_activity_help"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

@@ -10,8 +10,13 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
+
+    private static String username = "admin";
+    private static String password = "admin";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +29,17 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, BrokerActivity.class);
-                startActivity(intent);
+                TextView usernameText = (TextView) findViewById(R.id.username_text);
+                TextView passwordText = (TextView) findViewById(R.id.password);
+
+                String usr = usernameText.getText().toString();
+                String pass = passwordText.getText().toString();
+
+                if(username.equals(usr) && password.equals(pass)) {
+                    Intent intent = new Intent(LoginActivity.this, BrokerActivity.class);
+                    startActivity(intent);
+                }else
+                    Toast.makeText(getApplicationContext(), "Wrong Credentials!", Toast.LENGTH_LONG).show();
             }
         });
     }

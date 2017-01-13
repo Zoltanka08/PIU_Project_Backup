@@ -41,4 +41,21 @@ public class IndexData {
         }
         return null;
     }
+
+    public static Security getSecurityById(String id){
+        for(Security security : securitiesOfIndex){
+            if(security.getSecurityId().equals(id))
+                return security;
+        }
+        return null;
+    }
+
+    public static void updateAmountOfSecurity(String id, int amount){
+        Security security = getSecurityById(id);
+        String currentAmountString = security.getAmount();
+        int currentAmount = Integer.parseInt(currentAmountString);
+        int total = currentAmount - amount;
+        String totalStr = Integer.toString(total);
+        security.setAmount(totalStr);
+    }
 }
