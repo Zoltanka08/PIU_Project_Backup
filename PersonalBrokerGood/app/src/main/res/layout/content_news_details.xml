@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_security_details"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.pluralsight.zoltan.personalbrokergood.PortfolioDetailsActivity"
+    tools:showIn="@layout/activity_news_details">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/news_details_image"
+        android:layout_marginTop="40dp">
+
+        <TextView
+            android:text="\tInsipidity the sufficient discretion imprudence resolution sir him decisively. Proceed how any engaged visitor. Explained propriety off out perpetual his you. \n \n\t Feel sold off felt nay rose met you. We so entreaties cultivated astonished is. Was sister for few longer mrs sudden talent become. Done may bore quit evil old mile. If likely am of beauty tastes. "
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:layout_below="@+id/news_details_title"
+            android:layout_alignLeft="@+id/news_details_title"
+            android:layout_alignStart="@+id/news_details_title"
+            android:layout_marginTop="20dp"
+            android:id="@+id/news_details_description"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp" />
+
+    </ScrollView>
+
+    <TextView
+        android:text="Natural gas futures - review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/news_details_title"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="Setp. 30. 2017, 17:33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/news_details_date"
+        android:layout_below="@+id/news_details_title"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/gas_flare"
+        android:id="@+id/news_details_image"
+        android:layout_marginTop="13dp"
+        android:layout_below="@+id/news_details_date"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>

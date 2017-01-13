@@ -8,23 +8,22 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.pluralsight.zoltan.personalbrokergood.R;
-import com.pluralsight.zoltan.personalbrokergood.fragment.PortfolioFragment.OnPortfolioInteractionListener;
-
+import com.pluralsight.zoltan.personalbrokergood.fragment.SecurityFragment.OnSecurityInteractionListener;
 import java.util.List;
 
 import MockDatabase.Models.Security;
 
 /**
- * {@link RecyclerView.Adapter} that can display a {@link java.security.Security} and makes a call to the
- * specified {@link OnPortfolioInteractionListener}.
+ * {@link RecyclerView.Adapter} that can display a {@link Security} and makes a call to the
+ * specified {@link OnSecurityInteractionListener}.
  * TODO: Replace the implementation with code for your data type.
  */
-public class PortfolioAdapter extends RecyclerView.Adapter<PortfolioAdapter.ViewHolder> {
+public class SecurityAdapter extends RecyclerView.Adapter<SecurityAdapter.ViewHolder> {
 
     private final List<Security> mValues;
-    private final OnPortfolioInteractionListener mListener;
+    private final OnSecurityInteractionListener mListener;
 
-    public PortfolioAdapter(List<Security> items, OnPortfolioInteractionListener listener) {
+    public SecurityAdapter(List<Security> items, OnSecurityInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -32,13 +31,12 @@ public class PortfolioAdapter extends RecyclerView.Adapter<PortfolioAdapter.View
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_portfolio, parent, false);
+                .inflate(R.layout.fragment_secutiry, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-
         boolean ascending = mValues.get(position).getAscending();
 
         holder.mItem = mValues.get(position);
@@ -64,7 +62,7 @@ public class PortfolioAdapter extends RecyclerView.Adapter<PortfolioAdapter.View
                 if (null != mListener) {
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
-                    mListener.onPortfolioInteraction(holder.mItem);
+                    mListener.onSecurityInteraction(holder.mItem);
                 }
             }
         });

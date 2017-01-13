@@ -3,7 +3,6 @@ package com.pluralsight.zoltan.personalbrokergood.fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,36 +11,36 @@ import android.view.ViewGroup;
 
 import com.pluralsight.zoltan.personalbrokergood.R;
 
-import MockDatabase.Models.Database.SecurityData;
+import MockDatabase.Models.Database.IndexData;
 import MockDatabase.Models.Security;
 
 /**
  * A fragment representing a list of Items.
  * <p/>
- * Activities containing this fragment MUST implement the {@link OnPortfolioInteractionListener}
+ * Activities containing this fragment MUST implement the {@link OnSecurityInteractionListener}
  * interface.
  */
-public class PortfolioFragment extends Fragment {
+public class SecurityFragment extends Fragment {
 
     // TODO: Customize parameter argument names
-    private static final String ARG_COLUMN_COUNT = "column-count";
+    private static final String INDEX_POSITION = "IndexPosition";
     // TODO: Customize parameters
-    private int mColumnCount = 1;
-    private OnPortfolioInteractionListener mListener;
+    private String indexId = "";
+    private OnSecurityInteractionListener mListener;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public PortfolioFragment() {
+    public SecurityFragment() {
     }
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static PortfolioFragment newInstance(int columnCount) {
-        PortfolioFragment fragment = new PortfolioFragment();
+    public static SecurityFragment newInstance(String indexId) {
+        SecurityFragment fragment = new SecurityFragment();
         Bundle args = new Bundle();
-        args.putInt(ARG_COLUMN_COUNT, columnCount);
+        args.putString(INDEX_POSITION, indexId);
         fragment.setArguments(args);
         return fragment;
     }
@@ -51,27 +50,23 @@ public class PortfolioFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         if (getArguments() != null) {
-            mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
+            indexId = getArguments().getString(INDEX_POSITION);
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_portfolio_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_security_list, container, false);
 
-        SecurityData.SetupPortfolio();
+        IndexData.setupSecuritiesOfIndex();
 
         // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
-            if (mColumnCount <= 1) {
-                recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            } else {
-                recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
-            }
-            recyclerView.setAdapter(new PortfolioAdapter(SecurityData.portfolioSecurities, mListener));
+            recyclerView.setLayoutManager(new LinearLayoutManager(context));
+            recyclerView.setAdapter(new SecurityAdapter(IndexData.securitiesOfIndex, mListener));
         }
         return view;
     }
@@ -80,8 +75,8 @@ public class PortfolioFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnPortfolioInteractionListener) {
-            mListener = (OnPortfolioInteractionListener) context;
+        if (context instanceof OnSecurityInteractionListener) {
+            mListener = (OnSecurityInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnListFragmentInteractionListener");
@@ -104,8 +99,8 @@ public class PortfolioFragment extends Fragment {
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
-    public interface OnPortfolioInteractionListener {
+    public interface OnSecurityInteractionListener {
         // TODO: Update argument type and name
-        void onPortfolioInteraction(Security item);
+        void onSecurityInteraction(Security item);
     }
 }

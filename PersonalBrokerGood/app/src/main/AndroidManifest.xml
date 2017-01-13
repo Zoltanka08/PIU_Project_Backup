@@ -31,8 +31,16 @@
             android:label="@string/title_activity_bank_account"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".SecurityDetailsActivity"
+            android:name=".PortfolioDetailsActivity"
             android:label="@string/title_activity_security_details"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".NewsDetailsActivity"
+            android:label="@string/title_activity_ndetails"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SecuritiesOfIndexActivity"
+            android:label="@string/title_activity_securities_of_index"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

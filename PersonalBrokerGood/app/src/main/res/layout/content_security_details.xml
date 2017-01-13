@@ -10,8 +10,8 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.pluralsight.zoltan.personalbrokergood.SecurityDetailsActivity"
-    tools:showIn="@layout/activity_security_details">
+    tools:context="com.pluralsight.zoltan.personalbrokergood.PortfolioDetailsActivity"
+    tools:showIn="@layout/activity_portfolio_details">
 
     <TextView
         android:text="Security Name"
@@ -112,7 +112,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:id="@+id/sell_button"
+        android:id="@+id/buy_sell_button"
         android:layout_alignLeft="@+id/security_ask"
         android:layout_alignStart="@+id/security_ask"
         android:background="@android:color/holo_green_dark"
@@ -125,7 +125,7 @@
         android:layout_marginBottom="127dp"
         android:id="@+id/textView9"
         android:textSize="18sp"
-        android:layout_above="@+id/sell_button"
+        android:layout_above="@+id/buy_sell_button"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 </RelativeLayout>

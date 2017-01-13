@@ -1,5 +1,6 @@
 package com.pluralsight.zoltan.personalbrokergood;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -18,8 +19,20 @@ public class MoneyTransferActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_money_transfer);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(MoneyTransferActivity.this, BrokerActivity.class);
+                startActivity(myIntent);
+            }
+        });
 
         Button button = (Button) findViewById(R.id.money_transfer_button);
         button.setOnClickListener(new View.OnClickListener() {

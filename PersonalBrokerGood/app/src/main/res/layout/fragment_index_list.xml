@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/list"
-    android:name="com.pluralsight.zoltan.personalbrokergood.fragment.SecurityFragment"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:name="com.pluralsight.zoltan.personalbrokergood.fragment.IndexFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
     app:layoutManager="LinearLayoutManager"
-    tools:context="com.pluralsight.zoltan.personalbrokergood.fragment.SecurityFragment"
-    tools:listitem="@layout/fragment_secutiry" />
+    tools:context="com.pluralsight.zoltan.personalbrokergood.fragment.IndexFragment"
+    tools:listitem="@layout/fragment_index" />

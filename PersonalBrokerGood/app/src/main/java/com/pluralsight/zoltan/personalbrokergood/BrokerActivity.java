@@ -1,7 +1,6 @@
 package com.pluralsight.zoltan.personalbrokergood;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -16,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.pluralsight.zoltan.personalbrokergood.fragment.IndexFragment;
 import com.pluralsight.zoltan.personalbrokergood.fragment.NewsFragment;
 import com.pluralsight.zoltan.personalbrokergood.fragment.PortfolioFragment;
 
@@ -26,10 +26,20 @@ public class BrokerActivity extends AppCompatActivity
         implements  NavigationView.OnNavigationItemSelectedListener,
                     NewsFragment.OnNewsInteractionListener,
                     PortfolioFragment.OnPortfolioInteractionListener,
-                    AdapterView.OnItemSelectedListener {
+                    AdapterView.OnItemSelectedListener,
+                    IndexFragment.OnIndexInteractionListener {
 
     private static final String SECURITY_ID = "SecurityId";
     private static final String NEWS_ID = "NewsId";
+    private static final String OPERATION = "Operation";
+    private static final String SELL_OPERATION = "Sell";
+
+    private static final String FRAGMENT_ID = "FragmentName";
+    private static final String NEWS_DETAILS = "NewsDetails";
+    private static final String SECURITY_LIST = "SecurityList";
+
+    private static final String SPINNER_CHOICE = "SpinnerChoice";
+    private static final String INDEX_POSITION = "IndexPosition";
 
     NavigationView navigationView = null;
     Toolbar toolbar = null;
@@ -40,10 +50,7 @@ public class BrokerActivity extends AppCompatActivity
         setContentView(R.layout.activity_broker);
 
         //Set the fragment initially
-        PortfolioFragment fragment = new PortfolioFragment();
-        android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_container, fragment);
-        fragmentTransaction.commit();
+
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -60,10 +67,55 @@ public class BrokerActivity extends AppCompatActivity
         adapter.setDropDownViewResource(R.layout.spinner_dropdown_style);
         spinner.setAdapter(adapter);
 
+        if (savedInstanceState != null) {
+            spinner.setSelection(savedInstanceState.getInt(SPINNER_CHOICE, 0));
+        }
+
         spinner.setOnItemSelectedListener(this);
+
+        String fragmentName = getIntent().getStringExtra(FRAGMENT_ID);
+        setSpinnerState(fragmentName);
 
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        Spinner spinner = (Spinner) findViewById(R.id.menu_options_spinner);
+        outState.putInt(SPINNER_CHOICE, spinner.getSelectedItemPosition());
+
+        super.onSaveInstanceState(outState);
+    }
+
+    private void setSpinnerState(String fragmentName){
+        if(fragmentName != null)
+        {
+            if(fragmentName.equals(NEWS_DETAILS)){
+                Spinner spinner = (Spinner) findViewById(R.id.menu_options_spinner);
+                spinner.setSelection(3);
+                NewsFragment fragment = new NewsFragment();
+                android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, fragment);
+                fragmentTransaction.commit();
+            }
+
+            if(fragmentName.equals(SECURITY_LIST)){
+                Spinner spinner = (Spinner) findViewById(R.id.menu_options_spinner);
+                spinner.setSelection(1);
+                IndexFragment fragment = new IndexFragment();
+                android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, fragment);
+                fragmentTransaction.commit();
+            }
+        }
+        else
+        {
+            PortfolioFragment fragment = new PortfolioFragment();
+            android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.commit();
+        }
     }
 
     @Override
@@ -107,7 +159,10 @@ public class BrokerActivity extends AppCompatActivity
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
         } else if(pos == 1){
-
+            IndexFragment fragment = new IndexFragment();
+            android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.commit();
         } else if(pos == 2){
 
         } else if(pos == 3){
@@ -156,13 +211,23 @@ public class BrokerActivity extends AppCompatActivity
 
     @Override
     public void onPortfolioInteraction(Security item){
-        Intent myIntent = new Intent(this, SecurityDetailsActivity.class);
+        Intent myIntent = new Intent(this, PortfolioDetailsActivity.class);
         myIntent.putExtra(SECURITY_ID, item.getSecurityId());
+        myIntent.putExtra(OPERATION, SELL_OPERATION);
         startActivity(myIntent);
     }
 
     @Override
     public void onNewsInteraction(News item){
+        Intent myIntent = new Intent(this, NewsDetailsActivity.class);
+        myIntent.putExtra(NEWS_ID, item.getId());
+        startActivity(myIntent);
+    }
 
+    @Override
+    public void onIndexInteraction(Security item){
+        Intent myIntent = new Intent(this, SecuritiesOfIndexActivity.class);
+        myIntent.putExtra(INDEX_POSITION, item.getSecurityId());
+        startActivity(myIntent);
     }
 }

@@ -38,4 +38,6 @@
     <string name="source_iban">Source IBAN</string>
     <string name="amount_of_source_account">Amount</string>
     <string name="title_activity_security_details">SecurityDetailsActivity</string>
+    <string name="title_activity_ndetails">NDetailsActivity</string>
+    <string name="title_activity_securities_of_index">SecuritiesOfIndexActivity</string>
 </resources>

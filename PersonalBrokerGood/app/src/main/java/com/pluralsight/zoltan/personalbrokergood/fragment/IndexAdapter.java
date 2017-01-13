@@ -8,23 +8,24 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.pluralsight.zoltan.personalbrokergood.R;
-import com.pluralsight.zoltan.personalbrokergood.fragment.PortfolioFragment.OnPortfolioInteractionListener;
+import com.pluralsight.zoltan.personalbrokergood.fragment.IndexFragment.OnIndexInteractionListener;
 
 import java.util.List;
 
+import MockDatabase.Models.Database.IndexData;
 import MockDatabase.Models.Security;
 
 /**
- * {@link RecyclerView.Adapter} that can display a {@link java.security.Security} and makes a call to the
- * specified {@link OnPortfolioInteractionListener}.
+ * {@link RecyclerView.Adapter} that can display a {@link Security} and makes a call to the
+ * specified {@link OnIndexInteractionListener}.
  * TODO: Replace the implementation with code for your data type.
  */
-public class PortfolioAdapter extends RecyclerView.Adapter<PortfolioAdapter.ViewHolder> {
+public class IndexAdapter extends RecyclerView.Adapter<IndexAdapter.ViewHolder> {
 
     private final List<Security> mValues;
-    private final OnPortfolioInteractionListener mListener;
+    private final OnIndexInteractionListener mListener;
 
-    public PortfolioAdapter(List<Security> items, OnPortfolioInteractionListener listener) {
+    public IndexAdapter(List<Security> items, OnIndexInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -32,14 +33,12 @@ public class PortfolioAdapter extends RecyclerView.Adapter<PortfolioAdapter.View
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_portfolio, parent, false);
+                .inflate(R.layout.fragment_index, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-
-        boolean ascending = mValues.get(position).getAscending();
 
         holder.mItem = mValues.get(position);
         holder.mNameView.setText(mValues.get(position).getName());
@@ -49,12 +48,14 @@ public class PortfolioAdapter extends RecyclerView.Adapter<PortfolioAdapter.View
         holder.mRateView.setText(mValues.get(position).getRate());
         holder.mPercentageView.setText(mValues.get(position).getPercentage());
 
+        boolean ascending = mValues.get(position).getAscending();
+
         if(ascending) {
-            holder.mPriceView.setTextColor(Color.GREEN);
+            holder.mRateView.setTextColor(Color.GREEN);
             holder.mPercentageView.setTextColor(Color.GREEN);
         }
         else {
-            holder.mPriceView.setTextColor(Color.RED);
+            holder.mRateView.setTextColor(Color.RED);
             holder.mPercentageView.setTextColor(Color.RED);
         }
 
@@ -64,7 +65,7 @@ public class PortfolioAdapter extends RecyclerView.Adapter<PortfolioAdapter.View
                 if (null != mListener) {
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
-                    mListener.onPortfolioInteraction(holder.mItem);
+                    mListener.onIndexInteraction(holder.mItem);
                 }
             }
         });
@@ -88,12 +89,14 @@ public class PortfolioAdapter extends RecyclerView.Adapter<PortfolioAdapter.View
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mNameView = (TextView) view.findViewById(R.id.index_name);
-            mDateView = (TextView) view.findViewById(R.id.date);
-            mTypeView = (TextView) view.findViewById(R.id.type);
-            mPriceView = (TextView) view.findViewById(R.id.index_price);
-            mRateView = (TextView) view.findViewById(R.id.index_rate);
-            mPercentageView = (TextView) view.findViewById(R.id.index_percentage);
+            mNameView = (TextView) view.findViewById(R.id.index2_name);
+            mDateView = (TextView) view.findViewById(R.id.index2_date);
+            mTypeView = (TextView) view.findViewById(R.id.index2_type);
+            mPriceView = (TextView) view.findViewById(R.id.index2_price);
+            mRateView = (TextView) view.findViewById(R.id.index2_rate);
+            mPercentageView = (TextView) view.findViewById(R.id.index2_percentage);
+
+
         }
 
         @Override
